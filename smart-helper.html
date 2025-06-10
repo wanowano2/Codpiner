@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>مساعد ذكي لشرح الكود</title>
+</head>
+<body>
+  <h2>كود HTML</h2>
+  <textarea id="code" style="width:100%; height:150px;"><h1>مرحبا</h1></textarea>
+  <button onclick="explain()">🧠 شرح الكود</button>
+  <div id="explanation" style="margin-top:20px;"></div>
+
+  <script>
+    function explain() {
+      const code = document.getElementById("code").value;
+      let explanation = "";
+
+      if (code.includes("<h1>")) explanation += "هذا عنصر عنوان رئيسي (H1) لعرض نص كبير.
+";
+      if (code.includes("<p>")) explanation += "هذا عنصر فقرة لعرض نص عادي.
+";
+      if (code.includes("console.log")) explanation += "يعرض رسالة في وحدة التحكم (Console).
+";
+
+      document.getElementById("explanation").innerText = explanation || "لم يتم التعرف على الكود.";
+    }
+  </script>
+</body>
+</html>
